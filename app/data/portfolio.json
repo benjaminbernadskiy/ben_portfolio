@@ -3,7 +3,7 @@
     "name": "Ben",
     "title": "High School Student | Robotics and Electronics",
     "bio": "I build robots with CAD, 3D printing, embedded electronics, and code. Right now I am documenting my quadruped robot dog, and next I want to study electrical engineering and keep building real hardware.",
-    "heroImage": "/pfp2l.png",
+    "heroImage": "/pfp2.png",
     "currentFocus": "Building and documenting my quadruped robot dog.",
     "futureGoal": "Study electrical engineering and keep working on robotics and real hardware.",
     "profileImage": "/pfp1.png",
@@ -31,10 +31,6 @@
       {
         "src": "/pfp6.png",
         "label": "Photo 6"
-      },
-      {
-        "src": "/pfp7.png",
-        "label": "Photo 7"
       }
     ],
     "github": "https://github.com/benjaminbernadskiy",
