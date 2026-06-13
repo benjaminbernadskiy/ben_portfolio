@@ -1,0 +1,290 @@
+{
+  "personal": {
+    "name": "Ben",
+    "title": "High School Student | Robotics and Electronics",
+    "bio": "I build robots with CAD, 3D printing, embedded electronics, and code. Right now I am documenting my quadruped robot dog, and next I want to study electrical engineering and keep building real hardware.",
+    "heroImage": "/pfp2l.png",
+    "currentFocus": "Building and documenting my quadruped robot dog.",
+    "futureGoal": "Study electrical engineering and keep working on robotics and real hardware.",
+    "profileImage": "/pfp1.png",
+    "galleryImages": [
+      {
+        "src": "/pfp1.png",
+        "label": "Photo 1"
+      },
+      {
+        "src": "/pfp2.png",
+        "label": "Photo 2"
+      },
+      {
+        "src": "/pfp3.png",
+        "label": "Photo 3"
+      },
+      {
+        "src": "/pfp4.png",
+        "label": "Photo 4"
+      },
+      {
+        "src": "/pfp5.png",
+        "label": "Photo 5"
+      },
+      {
+        "src": "/pfp6.png",
+        "label": "Photo 6"
+      },
+      {
+        "src": "/pfp7.png",
+        "label": "Photo 7"
+      }
+    ],
+    "github": "https://github.com/benjaminbernadskiy",
+    "linkedin": "https://www.linkedin.com/in/benjamin-bernadskiy-660b82415/",
+    "email": "hello@example.com"
+  },
+  "experience": [
+    {
+      "role": "Information Technology Intern",
+      "organization": "SITHS",
+      "dates": "2025 – Present",
+      "type": "Internship"
+    },
+    {
+      "role": "Summer Youth Employment Program",
+      "organization": "SYEP",
+      "dates": "2024 – Present",
+      "type": "Work experience"
+    },
+    {
+      "role": "Web Development Intern",
+      "organization": "SITHS Summer Design Institute",
+      "dates": "2024 – Present",
+      "type": "Internship"
+    },
+    {
+      "role": "Robotics Intern",
+      "organization": "SITHS Summer Design Institute",
+      "dates": "2025 – Present",
+      "type": "Internship"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "slug": "quadruped-robot-dog",
+      "title": "Quadruped Robot Dog",
+      "description": "A 3D-printed quadruped robot dog with custom CAD body parts, wiring, and control code documented in my build PDF.",
+      "image": "/robotdog.png",
+      "imageFit": "contain",
+      "tags": ["Robotics", "CAD", "3D Printing", "Electronics", "Code"],
+      "link": "/robot-dog-build.pdf",
+      "caseStudy": {
+        "enabled": true,
+        "heroSummary": "A robot dog build with a custom printed body, electronics mounted inside the frame, and supporting CAD/code documentation.",
+        "overview": "This is my robot dog project. The build combines printed structural parts, electronics, wiring, and control code into a physical quadruped prototype. A big software piece is inverse kinematics: instead of manually guessing every servo angle, the code can take a target foot position and calculate the joint angles needed to put the leg there. The PDF linked here has the build photos and supporting material, including CAD/code references from the project.",
+        "focus": {
+          "label": "Inverse kinematics",
+          "title": "Inverse kinematics for foot positioning",
+          "body": "Each leg has multiple joints, so changing one servo also changes where the rest of the leg ends up. The inverse kinematics code starts with the foot position I want and works backward through the leg geometry to calculate the joint angles. That makes movement easier to plan and keeps the software tied to the dimensions of the physical leg.",
+          "steps": [
+            "Set a target position for the foot relative to the leg's starting point.",
+            "Use the lengths and geometry of the leg sections to solve the joint angles.",
+            "Convert those angles into servo commands for the physical leg.",
+            "Test the real motion and adjust for mechanical limits, offsets, and differences between the printed parts."
+          ]
+        },
+        "demo": {
+          "highlights": [
+            "3D-printed body sections for the chassis and legs",
+            "Electronics and wiring routed through the main frame",
+            "CAD and code materials collected in the project PDF",
+            "Physical prototype assembled and photographed during the build"
+          ]
+        },
+        "hardware": [
+          {
+            "name": "Printed chassis and two-joint legs",
+            "detail": "The blue CAD parts hold the electronics and create four matching leg assemblies with two controlled joints per leg."
+          },
+          {
+            "name": "Eight servos",
+            "detail": "Two servos control each leg. Every channel has its own calibrated neutral value because the installed angles are not perfectly identical."
+          },
+          {
+            "name": "PCA9685 servo driver",
+            "detail": "The PWM driver gives the controller enough stable channels to command all eight leg servos at 50 Hz."
+          },
+          {
+            "name": "MPU6050 and power cutoff",
+            "detail": "The IMU measures body tilt, while a MOSFET and shutdown button let the robot return to neutral before power is cut."
+          }
+        ],
+        "software": [
+          {
+            "name": "Diagonal-pair gait",
+            "detail": "Front-right and back-left move together while the opposite pair runs half a cycle behind, using sine and cosine offsets."
+          },
+          {
+            "name": "Per-servo calibration",
+            "detail": "An array stores eight different neutral angles so the same motion pattern starts from the real position of each installed servo."
+          },
+          {
+            "name": "ESP-NOW remote control",
+            "detail": "The robot receives speed, turn bias, and active-state packets wirelessly without needing a normal Wi-Fi connection."
+          },
+          {
+            "name": "Tilt correction and shutdown",
+            "detail": "MPU6050 readings pass through a dead zone and capped correction before changing the servos; shutdown first eases every joint back to neutral."
+          }
+        ],
+        "buildProcess": [
+          {
+            "phase": "Prototype the electronics",
+            "note": "Tested the controller, servo driver, sensor, and power wiring on an early board and breadboard before committing them to the frame."
+          },
+          {
+            "phase": "Print and assemble the body",
+            "note": "Produced the chassis and leg parts from the CAD, then assembled four two-joint legs around the central electronics space."
+          },
+          {
+            "phase": "Wire all eight servos",
+            "note": "Mounted the PCA9685 and routed power and signal wiring so each servo channel could still be reached and tested."
+          },
+          {
+            "phase": "Calibrate the neutral pose",
+            "note": "Measured and stored a separate starting angle for every servo instead of assuming all eight joints aligned the same way."
+          },
+          {
+            "phase": "Build the gait and controls",
+            "note": "Added diagonal leg timing, forward and reverse speed, one-sided turning, wireless commands, tilt correction, and a controlled shutdown."
+          }
+        ],
+        "challenges": [
+          {
+            "problem": "The same angle command does not put every physical servo in the same position.",
+            "solution": "Calibrated all eight channels separately and stored their neutral angles in the code before adding motion on top."
+          },
+          {
+            "problem": "Moving four legs independently can turn into an unstable shuffle instead of a repeatable gait.",
+            "solution": "Paired diagonal legs and offset the second pair by half a cycle so the body has a more consistent support pattern."
+          },
+          {
+            "problem": "The dog needs to turn even though the legs do not steer like wheels.",
+            "solution": "For a turn, the code moves only the legs on one side while holding the opposite side at its calibrated neutral pose."
+          },
+          {
+            "problem": "Raw tilt readings can make the servos constantly twitch and overcorrect.",
+            "solution": "Added a ten-degree dead zone, stepped corrections, and a hard limit so small sensor noise does not immediately move every joint."
+          },
+          {
+            "problem": "Cutting power while the legs are loaded can leave the robot in an awkward position.",
+            "solution": "The shutdown routine slowly returns all eight servos toward neutral before switching the MOSFET off."
+          }
+        ],
+        "results": [
+          {
+            "metric": "Build type",
+            "value": "Quadruped robot prototype"
+          },
+          {
+            "metric": "Main fabrication method",
+            "value": "3D printing"
+          },
+          {
+            "metric": "Documentation",
+            "value": "Photos, CAD, and code notes"
+          },
+          {
+            "metric": "Status",
+            "value": "Physical prototype"
+          }
+        ],
+        "lessonsLearned": [
+          "A mathematically clean motion still looks wrong when the neutral angles are off. Calibration has to happen before gait tuning.",
+          "Walking is mostly about relationships between legs. The half-cycle offset between diagonal pairs matters more than making one leg move perfectly by itself.",
+          "Sensor feedback needs restraint. A dead zone and correction limit can make a balancing system more useful than reacting to every tiny reading.",
+          "Serviceability is part of the mechanical design. The frame has to leave enough access to trace wiring, replace a servo, and test one channel at a time."
+        ],
+        "futureImprovements": [
+          "Replace the fixed circular gait with inverse kinematics that accepts a target foot position for each two-joint leg.",
+          "Measure the real link lengths and servo offsets so the calculated foot position matches the printed mechanism more closely.",
+          "Design and test foot trajectories for lifting, stepping forward, and placing the foot down instead of only rotating through a cycle.",
+          "Move the prototype wiring toward a cleaner permanent board after the control behavior is settled."
+        ],
+        "links": [
+          {
+            "label": "Build PDF",
+            "url": "/robot-dog-build.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "slug": "morning-announcement-hub",
+      "title": "School Morning Announcement Hub",
+      "description": "A website I designed and built solo that my entire school uses as the central hub for its morning announcement system.",
+      "image": "/early-bird-banner.png",
+      "imageFit": "cover",
+      "metricImage": "/early-bird-traffic.png",
+      "metric": "200+ daily visits across SITHS classrooms",
+      "featured": true,
+      "impact": "Used across my school",
+      "credit": "Designed and built solo",
+      "tags": ["Web Development", "School-wide Tool", "Solo Project"],
+      "link": "https://earlybirdhub.netlify.app/",
+      "linkLabel": "Open Early Bird Hub",
+      "caseStudyLabel": "See how it works",
+      "caseStudy": {
+        "enabled": true
+      }
+    },
+    {
+      "id": 3,
+      "slug": "ftc-robotics",
+      "title": "FTC Competition Robot",
+      "description": "Three mechanical and software iterations led to a compact odometry-controlled turret robot for the NYC Championship.",
+      "image": "/ftc-v3-hero.png",
+      "imageFit": "cover",
+      "featured": true,
+      "cardKicker": "FIRST Tech Challenge",
+      "impact": "NYC Championship robot",
+      "credit": "Mechanical design + code",
+      "tags": ["FTC", "Robotics", "CAD", "Programming", "Competition"],
+      "caseStudyLabel": "Explore the robot",
+      "caseStudy": {
+        "enabled": true
+      }
+    },
+    {
+      "id": 4,
+      "slug": "smart-room-monitor",
+      "title": "Smart Room Monitor",
+      "description": "A compact ESP32 sensor station that tracks room conditions with a lightweight dashboard.",
+      "image": "https://picsum.photos/seed/proj2/1280/720",
+      "tags": ["ESP32", "Sensors", "IoT"],
+      "link": "#",
+      "github": "https://github.com/yourusername/esp32-room-monitor",
+      "caseStudy": {
+        "enabled": false
+      }
+    }
+  ],
+  "github_repos": [
+    {
+      "id": 1,
+      "name": "robot-arm-controller",
+      "description": "Control code and tuning notes for my robot arm prototype.",
+      "stars": 42,
+      "language": "C++",
+      "url": "https://github.com/yourusername/robot-arm-controller"
+    },
+    {
+      "id": 2,
+      "name": "esp32-room-monitor",
+      "description": "Firmware and dashboard experiments for my room monitoring setup.",
+      "stars": 12,
+      "language": "Python",
+      "url": "https://github.com/yourusername/esp32-room-monitor"
+    }
+  ]
+}
