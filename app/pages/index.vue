@@ -265,7 +265,11 @@ const resolveLandscapeVariants = async () => {
     configuredGalleryImages.value.map(async (image) => {
       const landscapeSrc = landscapeVariantFor(image.src);
 
-      if (landscapeSrc !== image.src && (await imageExists(landscapeSrc))) {
+      if (
+        landscapeSrc !== image.src &&
+        landscapeSrc !== personal.value.heroImage &&
+        (await imageExists(landscapeSrc))
+      ) {
         return {
           ...image,
           src: landscapeSrc,
