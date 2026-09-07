@@ -1,5 +1,5 @@
 <template>
-  <main class="bg-white text-slate-900">
+  <main class="case-study-page bg-white text-slate-900">
     <section class="bg-slate-950 px-5 pb-6 pt-24 text-white sm:px-8 lg:px-10">
       <div class="relative mx-auto min-h-[38rem] max-w-7xl overflow-hidden sm:min-h-[46rem]">
         <img
@@ -81,11 +81,11 @@
           </a>
         </div>
 
-        <figure class="bg-[#eef0f2] p-5 sm:p-8">
+        <figure class="aspect-square overflow-hidden bg-[#eef0f2]">
           <img
             src="/ftc-v3-cad.png"
             alt="CAD of the final FTC robot with bumper intake and turreted shooter"
-            class="mx-auto max-h-[34rem] w-full object-contain"
+            class="h-full w-full object-cover"
           />
         </figure>
       </div>

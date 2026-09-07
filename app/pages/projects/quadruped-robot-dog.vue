@@ -1,5 +1,5 @@
 <template>
-  <main class="bg-white text-slate-900">
+  <main class="case-study-page bg-white text-slate-900">
     <section class="px-5 pb-16 pt-32 sm:px-8 sm:pb-20 lg:px-10 lg:pt-36">
       <div class="mx-auto max-w-7xl">
         <NuxtLink
@@ -37,7 +37,7 @@
       </div>
     </section>
 
-    <figure class="bg-[#eef0f2] px-5 py-8 sm:px-8 sm:py-12 lg:px-10">
+    <figure class="project-hero-full bg-[#eef0f2] px-5 py-8 sm:px-8 sm:py-12 lg:px-10">
       <img
         src="/robotdog.png"
         alt="Blue and black 3D-printed quadruped robot dog"

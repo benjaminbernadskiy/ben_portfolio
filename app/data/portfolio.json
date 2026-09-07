@@ -66,7 +66,7 @@
       "title": "Quadruped Robot Dog",
       "description": "A 3D-printed quadruped robot dog with custom CAD body parts, wiring, and control code documented in my build PDF.",
       "image": "/robotdog.png",
-      "imageFit": "contain",
+      "imageFit": "cover",
       "tags": ["Robotics", "CAD", "3D Printing", "Electronics", "Code"],
       "link": "/robot-dog-build.pdf",
       "caseStudy": {

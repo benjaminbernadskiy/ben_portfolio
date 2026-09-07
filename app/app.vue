@@ -1,13 +1,14 @@
 <template>
   <div class="min-h-screen bg-white text-slate-900 selection:bg-sky-200">
+    <a href="#page-content" class="skip-link">Skip to content</a>
     <Header />
-    <NuxtPage />
+    <div id="page-content">
+      <NuxtPage />
+    </div>
 
     <footer class="border-t border-slate-200 bg-white py-10 text-center text-sm text-slate-500">
       <p>Projects, experiments, and notes.</p>
-      <p class="mt-2">
-        &copy; {{ currentYear }} {{ personal.name }}. All rights reserved.
-      </p>
+      <p class="mt-2">&copy; {{ currentYear }} {{ personal.name }}. All rights reserved.</p>
     </footer>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <main class="bg-white text-slate-900">
+  <main class="case-study-page bg-white text-slate-900">
     <section class="px-5 pb-16 pt-32 sm:px-8 sm:pb-20 lg:px-10 lg:pt-36">
       <div class="mx-auto max-w-7xl">
         <NuxtLink
